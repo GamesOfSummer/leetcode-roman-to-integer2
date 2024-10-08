@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateFxn = void 0;
-var validateFxn = function (output, answer) {
+const validateFxn = (output, answer) => {
     //console.log('\x1b[36m%s\x1b[0m', '🛠 Testing function...');
     if (Array.isArray(output) &&
         Array.isArray(answer) &&
@@ -17,3 +17,4 @@ var validateFxn = function (output, answer) {
     //console.log();
 };
 exports.validateFxn = validateFxn;
+//# sourceMappingURL=helpers.js.map

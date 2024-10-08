@@ -17,10 +17,10 @@ function converter(
     i: number,
     array: any
 ): number {
-    if (array[i] > array[i + 1]) {
-        accumulator += number;
-    } else if (array[i] < array[i + 1]) {
-        accumulator -= number;
+    if (array[i] < array[i + 1]) {
+        accumulator -= array[i];
+    } else {
+        accumulator += array[i];
     }
 
     return accumulator;
@@ -30,7 +30,7 @@ function romanToInt(romanString: string): number {
     const romanStringChars = romanString.split('');
     const numbers = romanStringChars.map((x) => romans[x]);
 
-    const returnValue = numbers.reduce((acc, number, index) =>
+    const returnValue = numbers.reduce((acc, number, index, numbers) =>
         converter(acc, number, index, numbers)
     );
 
@@ -39,7 +39,11 @@ function romanToInt(romanString: string): number {
 
 Coco.setColor('firewood');
 Coco.start();
+validateFxn(romanToInt('IV'), 4);
+validateFxn(romanToInt('LVIII'), 58);
+validateFxn(romanToInt('III'), 3);
 validateFxn(romanToInt('MCMXCIV'), 1994);
+
 Coco.end();
 
 export {};
